@@ -16,7 +16,14 @@ export default function App() {
   const [operation, setOperation] = useState("");
 
   function buttonPressedValue(value) {
-    //values which we receive when the button is pressed from the other  button press component/...
+    //for handling the operation with periods
+    if (!buttonValue.length && value === ".") {
+      return;
+    }
+    //for handling the operation with periods
+    if (buttonValue.includes(".") && value === ".") {
+      return;
+    }
 
     setButtonValue((prevValue) => prevValue + value);
   }
@@ -106,6 +113,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "black",
     height: 900,
-    margin: 1,
+    margin: 0,
   },
 });
